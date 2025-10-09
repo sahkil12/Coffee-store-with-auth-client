@@ -1,8 +1,12 @@
+import { useLoaderData } from "react-router";
+import Hero from "./Hero";
 
 const Home = () => {
+    const coffees = useLoaderData([])
+    console.log(coffees);
     return (
         <div>
-            <h2>home</h2>
+         <Hero></Hero>
         </div>
     );
 };

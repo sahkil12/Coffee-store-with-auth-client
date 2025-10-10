@@ -51,16 +51,16 @@ const Footer = () => {
             <div className="sm:w-10/12 lg:w-4/5 space-y-5">
               <input
                 type="text"
-                className="input text-base w-full py-6 rounded-lg border-neutral-300 focus:outline-none "
+                className="input text-lg w-full py-6 rounded-lg border-neutral-300 focus:shadow-2xl focus:border-[#d1ab7a9f] focus:outline-none focus:border-2 "
                 placeholder="Name"
               />
               <input
                 type="email"
-                className="input text-base w-full py-6 rounded-lg border-neutral-300 focus:outline-none "
+                className="input text-lg w-full py-6 rounded-lg border-neutral-300 focus:shadow-2xl focus:border-[#d1ab7a9f] focus:outline-none focus:border-2 "
                 placeholder="Email"
               />
-              <textarea className="textarea w-full text-base" placeholder="Message"></textarea>
-              <button className="border-2 rounded-full px-5 py-1 rancho text-xl">Send Message</button>
+              <textarea className="textarea w-full text-lg border-neutral-300 focus:shadow-2xl focus:border-[#d1ab7a9f] focus:outline-none focus:border-2 " placeholder="Message"></textarea>
+              <button className="border-2 rounded-full px-5 py-1 rancho text-xl hover:bg-[#E3B577] duration-150">Send Message</button>
             </div>
           </section>
         </div>

@@ -2,7 +2,7 @@ import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
   const { _id, photo, price, name, supplier } = coffee;
   // delete function--
   const handleDeleteCoffee = (id) => {
@@ -28,6 +28,9 @@ const CoffeeCard = ({ coffee }) => {
             text: "Your Coffee has been deleted.",
             icon: "success",
           });
+        //   remove coffee from the state
+                const remainingCoffee = coffees.filter(cof => cof._id  !== id)
+                setCoffees(remainingCoffee)
             }
           });
       }
@@ -62,9 +65,9 @@ const CoffeeCard = ({ coffee }) => {
           <FaEye className="text-white" />
         </Link>
         {/* edit details button */}
-        <button className="p-2 md:p-3 rounded-md bg-black hover:opacity-85">
+        <Link to={`/updateCoffee/${_id}`} className="p-2 md:p-3 rounded-md bg-black hover:opacity-85">
           <FaEdit className="text-white" />
-        </button>
+        </Link>
         {/* delete button */}
         <button
           onClick={() => handleDeleteCoffee(_id)}

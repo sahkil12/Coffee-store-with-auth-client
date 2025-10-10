@@ -22,7 +22,9 @@ const PopularProduct = () => {
                 <section className="my-10 md:w-[90%] xl:w-10/12 mx-auto p-5">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {
-                        coffees.map(coffee=> <CoffeeCard coffee={coffee} key={coffee._id}></CoffeeCard>)
+                        coffees.map(coffee=> <CoffeeCard 
+                            coffees={coffees} setCoffees={setCoffees}
+                            coffee={coffee} key={coffee._id}></CoffeeCard>)
                     }
                     </div>
                 </section>

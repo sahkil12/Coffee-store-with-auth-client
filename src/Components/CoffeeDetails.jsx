@@ -3,7 +3,6 @@ import { Link, useLoaderData } from "react-router";
 
 const CoffeeDetails = () => {
     const coffee = useLoaderData()
-    console.log(coffee);
     const {details, name, photo, price, quantity, supplier, taste} = coffee;
     return (
          <div className="py-10 max-w-[1280px] mx-auto">
@@ -13,14 +12,15 @@ const CoffeeDetails = () => {
           Back To Home
         </Link>
       </div>
-
       <div className="bg-[#F4F3F0] rounded-lg p-6 sm:p-12 lg:p-16 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* image section */}
             <div className="flex justify-center">
                 <img src={photo} alt={name}  className="h-full drop-shadow-md w-90"/>
             </div>
+            {/* text section */}
             <div className="flex flex-col gap-4 justify-center">
                 <h2 className="text-5xl font-medium mb-5 rancho drop-shadow-2xl choco">Niceties</h2>
-
+                {/* detail of coffee */}
                 <h3 className="text-xl text-neutral-600"><span className="font-bold choco">Name : </span>{name }</h3>
                 <h3 className="text-xl text-neutral-600"><span className="font-bold choco">Price : </span>{price }</h3>
                 <h3 className="text-xl text-neutral-600"><span className="font-bold choco">Supplier : </span>{supplier }</h3>

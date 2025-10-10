@@ -1,30 +1,33 @@
-import { Link } from "react-router";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { Link, useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
-const AddCoffee = () => {
+const UpdateCoffeeData = () => {
+  const coffee = useLoaderData();
+  const { _id, details, name, photo, price, quantity, supplier, taste } =
+    coffee;
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const newCoffee = Object.fromEntries(formData.entries());
-    // post data ---
-    fetch("http://localhost:5000/coffees", {
-      method: "POST",
+    const updatedCoffee = Object.fromEntries(formData.entries());
+    // update data ---
+    fetch(`http://localhost:5000/coffees/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newCoffee),
+      body: JSON.stringify(updatedCoffee),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
+        if (data.modifiedCount) {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Coffee Added SuccessFully!",
+            title: "Coffee details Updated Successfully",
             showConfirmButton: false,
-            timer: 1200,
+            timer: 1500,
           });
         }
       });
@@ -40,8 +43,8 @@ const AddCoffee = () => {
 
       <div className="bg-[#F4F3F0] rounded-lg p-6 sm:p-12 lg:p-16">
         <div className="text-center space-y-6 ">
-          <h2 className="text-5xl font-semibold rancho text-[#374151]">
-            Add New Coffee
+          <h2 className="text-5xl font-semibold rancho text-[#374151] drop-shadow-2xl">
+            Update Existing Coffee Details
           </h2>
           <p className="text-lg/relaxed opacity-90 md:w-9/12 mx-auto text-neutral-600">
             It is a long established fact that a reader will be distraceted by
@@ -62,6 +65,7 @@ const AddCoffee = () => {
               <input
                 type="text"
                 name="name"
+                defaultValue={name}
                 className="input text-base w-full py-6 border-neutral-200 focus:outline-none "
                 placeholder="Enter coffee name"
               />
@@ -73,6 +77,7 @@ const AddCoffee = () => {
               <input
                 type="text"
                 name="quantity"
+                defaultValue={quantity}
                 className="input text-base w-full border-neutral-200 py-6 focus:outline-none "
                 placeholder="Enter coffee Quantity"
               />
@@ -84,6 +89,7 @@ const AddCoffee = () => {
               <input
                 type="text"
                 name="supplier"
+                defaultValue={supplier}
                 className="input text-base w-full border-neutral-200 py-6 focus:outline-none "
                 placeholder="Enter coffee supplier"
               />
@@ -95,6 +101,7 @@ const AddCoffee = () => {
               <input
                 type="text"
                 name="taste"
+                defaultValue={taste}
                 className="input text-base w-full border-neutral-200 py-6 focus:outline-none "
                 placeholder="Enter coffee taste"
               />
@@ -106,6 +113,7 @@ const AddCoffee = () => {
               <input
                 type="number"
                 name="price"
+                defaultValue={price}
                 className="input text-base w-full border-neutral-200 py-6 focus:outline-none "
                 placeholder="Price"
               />
@@ -117,6 +125,7 @@ const AddCoffee = () => {
               <input
                 type="text"
                 name="details"
+                defaultValue={details}
                 className="input text-base w-full border-neutral-200 py-6 focus:outline-none "
                 placeholder="Enter coffee details"
               />
@@ -130,13 +139,14 @@ const AddCoffee = () => {
             <input
               type="text"
               name="photo"
+              defaultValue={photo}
               className="input text-base w-full border-neutral-200 py-6 focus:outline-none "
               placeholder="Enter photo URL"
             />
           </fieldset>
           {/* button */}
-          <button className="rancho my-6 rounded-md bg-[#D2B48C] w-full py-2 text-2xl font-medium border-2 border-[#331A15]">
-            Add Coffee
+          <button className="rancho my-6 rounded-md bg-[#D2B48C] w-full py-2 text-2xl font-medium border-2 border-[#331A15] ">
+            Update Coffee Details
           </button>
         </form>
       </div>
@@ -144,4 +154,4 @@ const AddCoffee = () => {
   );
 };
 
-export default AddCoffee;
+export default UpdateCoffeeData;

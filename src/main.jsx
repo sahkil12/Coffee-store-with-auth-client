@@ -12,11 +12,13 @@ import AddCoffee from './Components/AddCoffee.jsx';
 import CoffeeDetails from './Components/CoffeeDetails.jsx';
 import UpdateCoffeeData from './Components/UpdateCoffeeData.jsx';
 import Loader from './Components/Loader.jsx';
+import ErrorPage from './Components/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         index:true,

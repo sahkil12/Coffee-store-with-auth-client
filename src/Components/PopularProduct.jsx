@@ -19,7 +19,7 @@ const PopularProduct = () => {
                     <Link to={'/addCoffee'} className="flex items-center gap-2  rancho px-5 py-2 bg-[#E3B577] text-white font-medium text-2xl w-fit border-2 rounded-md border-[#331A15] hover:bg-white hover:text-black duration-200">Add Coffee <BsFillCupHotFill className="choco"/></Link>
                 </section>
                 {/* coffee card section */}
-                <section className="my-10 md:w-[90%] xl:w-10/12 mx-auto p-5">
+                <section className="my-10 md:w-[90%] xl:w-10/12 mx-auto sm:p-5">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {
                         coffees.map(coffee=> <CoffeeCard 

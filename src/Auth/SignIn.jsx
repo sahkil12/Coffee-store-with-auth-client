@@ -40,6 +40,7 @@ const SignIn = () => {
             .catch(error =>{
                 console.log(error);
             })
+            e.target.reset()
         }
   return (
     <div className="flex flex-col justify-center items-center min-h-screen">

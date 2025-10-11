@@ -55,6 +55,7 @@ const SignUp = () => {
         .catch(error =>{
             console.log(error);
         })
+        e.target.reset()
     }
 
     return (

@@ -13,6 +13,9 @@ import CoffeeDetails from './Components/CoffeeDetails.jsx';
 import UpdateCoffeeData from './Components/UpdateCoffeeData.jsx';
 import Loader from './Components/Loader.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
+import SignIn from './Auth/SignIn.jsx';
+import SignUp from './Auth/SignUp.jsx';
+import AuthProvider from './Provider/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,14 @@ const router = createBrowserRouter([
         loader:({params})=> fetch(`http://localhost:5000/coffees/${params.id}`),
         element:<UpdateCoffeeData></UpdateCoffeeData>,
         hydrateFallbackElement:<Loader></Loader>
+      },
+      {
+        path:'signin',
+        element:<SignIn></SignIn>,
+      },
+      {
+        path:"signup",
+        element:<SignUp></SignUp>
       }
     ]
   },
@@ -46,6 +57,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+    <AuthProvider>
+       <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

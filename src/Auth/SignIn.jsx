@@ -8,10 +8,10 @@ const SignIn = () => {
         const handleGoogleSignIn =()=>{
             googleUser()
             .then(result =>{
-                console.log(result);
+                // console.log(result);
             })
             .catch(error =>{
-                console.log(error);
+                // console.log(error);
             })
         }
         const handleFormSubmit =(e)=>{
@@ -20,7 +20,7 @@ const SignIn = () => {
             const password = e.target.password.value;
             signInUser(email, password)
             .then(result =>{
-                console.log(result);
+                // console.log(result);
                 const signinInfo ={
                     email,
                     lastSignInTime: result.user?.metadata?.lastSignInTime,
@@ -34,11 +34,11 @@ const SignIn = () => {
                 })
                 .then(res => res.json())
                 .then(data =>{
-                    console.log('after patch', data);
+                    // console.log('after patch', data);
                 })
             })
             .catch(error =>{
-                console.log(error);
+                // console.log(error);
             })
             e.target.reset()
         }

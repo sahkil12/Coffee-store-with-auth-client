@@ -9,10 +9,10 @@ const SignUp = () => {
     const handleGoogleSignUp =()=>{
         googleUser()
         .then(result =>{
-            console.log(result);
+            // console.log(result);
         })
         .catch(error =>{
-            console.log(error);
+            // console.log(error);
         })
     }
     // email password submit-
@@ -23,7 +23,7 @@ const SignUp = () => {
         const {email, password, ...restFormData} = Object.fromEntries(formData.entries())
         signUpUsers(email, password)
         .then(result =>{
-            console.log(result);
+            // console.log(result);
             const userProfile ={
                 email, 
                 ...restFormData,
@@ -40,7 +40,7 @@ const SignUp = () => {
             })
             .then(res => res.json())
             .then(data =>{
-                console.log("update ",data);
+                // console.log("update ",data);
                 if (data.insertedId) {
                           Swal.fire({
                             position: "center",
@@ -53,7 +53,7 @@ const SignUp = () => {
             })
         })
         .catch(error =>{
-            console.log(error);
+            // console.log(error);
         })
         e.target.reset()
     }

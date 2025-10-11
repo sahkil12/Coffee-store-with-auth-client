@@ -20,11 +20,16 @@ const SignUp = () => {
         e.preventDefault()
         const form = e.target;
         const formData = new FormData(form)
-        const {email, password, ...userProfile} = Object.fromEntries(formData.entries())
-        console.log(email, password, userProfile);
+        const {email, password, ...restFormData} = Object.fromEntries(formData.entries())
         signUpUsers(email, password)
         .then(result =>{
             console.log(result);
+            const userProfile ={
+                email, 
+                ...restFormData,
+                creationTime: result.user?.metadata?.creationTime,
+                lastSignInTime: result.user?.metadata?.lastSignInTime,
+            }
             // save user data bd -
             fetch('http://localhost:5000/users',{
                 method:"POST",
@@ -40,7 +45,7 @@ const SignUp = () => {
                           Swal.fire({
                             position: "center",
                             icon: "success",
-                            title: "User Added SuccessFully!",
+                            title: "Account Created SuccessFully!",
                             showConfirmButton: false,
                             timer: 1200,
                           });

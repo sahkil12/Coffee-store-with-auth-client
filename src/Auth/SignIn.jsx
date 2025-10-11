@@ -18,8 +18,28 @@ const SignIn = () => {
             e.preventDefault()
             const email = e.target.email.value;
             const password = e.target.password.value;
-            console.log(email, password);
             signInUser(email, password)
+            .then(result =>{
+                console.log(result);
+                const signinInfo ={
+                    email,
+                    lastSignInTime: result.user?.metadata?.lastSignInTime,
+                }
+                fetch('http://localhost:5000/users',{
+                    method:"PATCH",
+                    headers:{
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(signinInfo)
+                })
+                .then(res => res.json())
+                .then(data =>{
+                    console.log('after patch', data);
+                })
+            })
+            .catch(error =>{
+                console.log(error);
+            })
         }
   return (
     <div className="flex flex-col justify-center items-center min-h-screen">

@@ -16,6 +16,7 @@ import ErrorPage from './Components/ErrorPage.jsx';
 import SignIn from './Auth/SignIn.jsx';
 import SignUp from './Auth/SignUp.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import Users from './Components/Users.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,12 @@ const router = createBrowserRouter([
       {
         path:"signup",
         element:<SignUp></SignUp>
+      },
+      {
+        path:"users",
+        loader:()=> fetch('http://localhost:5000/users'),
+        element:<Users></Users>,
+        hydrateFallbackElement:<Loader></Loader>
       }
     ]
   },

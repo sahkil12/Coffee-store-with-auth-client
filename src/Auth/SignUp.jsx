@@ -31,7 +31,7 @@ const SignUp = () => {
                 lastSignInTime: result.user?.metadata?.lastSignInTime,
             }
             // save user data bd -
-            fetch('http://localhost:5000/users',{
+            fetch('https://coffee-shop-server-two-kappa.vercel.app/users',{
                 method:"POST",
                 headers:{
                     "content-type" : "application/json"

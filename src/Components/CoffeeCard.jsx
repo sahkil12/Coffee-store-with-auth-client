@@ -17,7 +17,7 @@ const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // delete fetch data --
-        fetch(`http://localhost:5000/coffees/${id}`, {
+        fetch(`https://coffee-shop-server-two-kappa.vercel.app/coffees/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

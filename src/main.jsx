@@ -34,13 +34,13 @@ const router = createBrowserRouter([
       },
       {
         path:'/coffee/:id',
-        loader:({params})=> fetch(`http://localhost:5000/coffees/${params.id}`),
+        loader:({params})=> fetch(`https://coffee-shop-server-two-kappa.vercel.app/coffees/${params.id}`),
         element:<CoffeeDetails></CoffeeDetails>,
         hydrateFallbackElement:<Loader></Loader>
       },
       {
         path:'/updateCoffee/:id',
-        loader:({params})=> fetch(`http://localhost:5000/coffees/${params.id}`),
+        loader:({params})=> fetch(`https://coffee-shop-server-two-kappa.vercel.app/coffees/${params.id}`),
         element:<UpdateCoffeeData></UpdateCoffeeData>,
         hydrateFallbackElement:<Loader></Loader>
       },
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path:"users",
-        loader:()=> fetch('http://localhost:5000/users'),
+        loader:()=> fetch('https://coffee-shop-server-two-kappa.vercel.app/users'),
         element:<Users></Users>,
         hydrateFallbackElement:<Loader></Loader>
       }

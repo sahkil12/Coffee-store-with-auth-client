@@ -5,7 +5,7 @@ import CoffeeCard from "./CoffeeCard";
 const PopularProduct = () => {
     const [coffees, setCoffees] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/coffees')
+        fetch('https://coffee-shop-server-two-kappa.vercel.app/coffees')
         .then(res => res.json())
         .then(data => setCoffees(data))
     },[])

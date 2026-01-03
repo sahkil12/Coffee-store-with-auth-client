@@ -2,8 +2,6 @@
 
 Coffee Store is a web application where users can add, view, update, and delete coffee items. The project includes user authentication and focuses on CRUD operations with a clean and responsive user interface.
 
----
-
 ## 🌐 Live Website
 
 🔗 https://coffee-store-client-8e10f.web.app/
@@ -44,12 +42,11 @@ Coffee Store is a web application where users can add, view, update, and delete 
 - React-router-dom
 - sweetalert2
 
----
 
 ## 📸 Screenshots
 
 **Coffee-Shop Page**
-![Full Page](./public/careerLink-page.png)
+![Full Page](./public/coffee-shop-page.png)
 
 ---
 
